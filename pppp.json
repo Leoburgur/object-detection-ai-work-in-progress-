@@ -1,0 +1,118 @@
+ {
+  "project": {
+    "name": "pppp",
+    "id": "new",
+    "creationTs": 1695921088473,
+    "lastModifiedTs": 1696031383118,
+    "userSetData": {
+      "description": "",
+      "tags": [],
+      "contactURL": "",
+      "tutorialYouTube": ""
+    }
+  },
+  "graph": {
+    "nodes": [
+      {
+        "id": "input_image_av94xj",
+        "nodeSpecId": "input_image",
+        "customData": {
+          "initialWidth": 448,
+          "initialHeight": 240,
+          "previewX": 16,
+          "previewY": 16,
+          "previewWidth": 448,
+          "previewHeight": 240
+        },
+        "uiData": {
+          "posX": 0,
+          "posY": 14.5,
+          "width": 176,
+          "selected": false
+        },
+        "propValues": {
+          "urls": [
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic1.jpg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic2.jpeg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic3.jpg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic4.jpeg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic5.jpg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic6.jpg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic7.jpeg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic8.jpg",
+            "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic9.jpg"
+          ],
+          "gridColumnCount": 3,
+          "allowUserUpload": false,
+          "selectedImageUrl": "https://storage.googleapis.com/tfweb/visualblocks-input-images/pic5.jpg",
+          "hidePreview": false
+        }
+      },
+      {
+        "id": "object_detection_ssdj54",
+        "nodeSpecId": "object_detection",
+        "customData": {
+          "previewX": 16,
+          "previewY": 16,
+          "previewWidth": 320,
+          "previewHeight": 240
+        },
+        "uiData": {
+          "posX": 226,
+          "posY": 0,
+          "width": 176,
+          "selected": false
+        },
+        "propValues": {
+          "score": 0.5,
+          "boxesCount": 20
+        },
+        "incomingEdges": {
+          "image": [
+            {
+              "sourceNodeId": "input_image_av94xj",
+              "outputId": "image"
+            }
+          ]
+        }
+      },
+      {
+        "id": "bounding_box_visualizer_21i0ce",
+        "nodeSpecId": "bounding_box_visualizer",
+        "customData": {
+          "rightOfNode": "object_detection_ssdj54",
+          "previewX": 480,
+          "previewY": 16,
+          "previewWidth": 320,
+          "previewHeight": 240
+        },
+        "uiData": {
+          "posX": 452,
+          "posY": 14.5,
+          "width": 230,
+          "selected": true
+        },
+        "propValues": {
+          "keypointScale": 4.814285714285714,
+          "color": "#438049",
+          "hidePreview": false
+        },
+        "incomingEdges": {
+          "boundingBoxResult": [
+            {
+              "sourceNodeId": "object_detection_ssdj54",
+              "outputId": "objectDetectionResult"
+            }
+          ],
+          "image": [
+            {
+              "sourceNodeId": "input_image_av94xj",
+              "outputId": "image"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "customNodeUrls": []
+}
